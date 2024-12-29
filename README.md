@@ -11,3 +11,8 @@ Build a simple simulation of a service mesh to manage communication between micr
   - threading
   - json
   - http.server
+
+# Virtual Environment SetUp 
+  - To activate: source .venv/bin/activate
+  - To deactivate: deactivate
+  
