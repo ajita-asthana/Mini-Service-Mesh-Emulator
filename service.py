@@ -1,12 +1,71 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import json
 
-class SimpleService(BaseHTTPRequestHandler):
+class SimpleHandler(BaseHTTPRequestHandler):
+    # Handle GET methods
     def do_GET(self):
-        self.send_response(200)
+        if self.path == "/status":
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            response = {
+                "message": "Service is running!",
+                "status": "OK"
+            }
+            self.wfile.write(json.dumps(response).encode())
+        else:
+            self.send_response(404)
+            self.end_headers()
+            self.wfile.write(b"Endpoint not found")
+
+    # Handle Post Requests
+    def do_POST(self):
+        content_length = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(content_length).decode()
+        data = json.loads(body)
+
+        self.send_response(201)
+        self.send_header("Content-type", "application/json")
         self.end_headers()
-        self.wfile.write(b"Hello from Service!")
+        response = {
+            "message": "Data received!",
+            "data": data
+        }
+        self.wfile.write(json.dumps(response).encode())
+
+    # Handle PUT Requests
+    def do_PUT(self):
+        content_length = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(content_length).decode()
+        data = json.loads(body)
+
+        self.send_response(200)
+        self.send_header("Content-type", "application/json")
+        self.end_headers()
+        response = {
+            "message": "Data Updated!",
+            "data": data
+        }
+        self.wfile.write(json.dumps(response).encode())
+    
+    # Handle Delete Requests
+    def do_DELETE(self):
+        self.send_response(200)
+        self.send_header("Content-type", "application/json")
+        self.end_headers()
+        response = {"message" : "Resource deleted!"}
+        self.wfile.write(json.dumps(response).encode())
+
 
 if __name__ == "__main__":
-    server = HTTPServer(("localhost", 8001), SimpleService)
-    print("Service running on port 8001")
+    host = "localhost"
+    port = 8001
+    server = HTTPServer((host, port), SimpleHandler)
+    print(f"Service running on {host}:{port}")
     server.serve_forever()
+
+# Testing the Service
+    # GET:  curl http://localhost:8001/status
+    # POST: curl -X POST http://localhost:8001 -H "Content-Type: application/json" -d '{"name": "example"}'
+    # PUT: curl -X PUT http://localhost:8001 -H "Content-Type: application/json" -d '{"name": "updated example"}'
+    # DELETE: curl -X DELETE http://localhost:8001
