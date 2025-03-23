@@ -16,3 +16,10 @@ Build a simple simulation of a service mesh to manage communication between micr
   - To activate: source .venv/bin/activate
   - To deactivate: deactivate
   
+## Testing with pytest
+
+```bash
+$ source .venv/bin/activate
+$ pip install pytest
+$ pytest
+```
