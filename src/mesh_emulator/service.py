@@ -56,13 +56,15 @@ class SimpleHandler(BaseHTTPRequestHandler):
         response = {"message" : "Resource deleted!"}
         self.wfile.write(json.dumps(response).encode())
 
+    def run_server(self, port=8000):
+        host = "localhost"
+        server = HTTPServer((host, port), SimpleHandler)
+        print(f"Service running on {host}:{port}")
+        server.serve_forever()
 
 if __name__ == "__main__":
-    host = "localhost"
-    port = 8001
-    server = HTTPServer((host, port), SimpleHandler)
-    print(f"Service running on {host}:{port}")
-    server.serve_forever()
+    server = SimpleHandler()
+    server.run_server()
 
 # Testing the Service
     # GET:  curl http://localhost:8001/status
