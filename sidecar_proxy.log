@@ -1,0 +1,79 @@
+2024-12-30 13:02:43,521 - INFO - Sidecar Proxy running on port 8080...
+2024-12-30 13:09:42,176 - INFO - Sidecar Proxy running on port 8080...
+2024-12-30 13:10:28,908 - INFO - Sidecar Proxy running on port 8080...
+2024-12-30 13:10:57,922 - INFO - Incoming request: /
+2024-12-30 13:10:57,922 - ERROR - No route found for: /
+2024-12-30 13:10:58,008 - INFO - Incoming request: /favicon.ico
+2024-12-30 13:10:58,009 - ERROR - No route found for: /favicon.ico
+2024-12-30 13:11:58,672 - INFO - Incoming request: /status
+2024-12-30 13:11:58,673 - ERROR - No route found for: /status
+2024-12-30 13:13:30,631 - INFO - Incoming request: /
+2024-12-30 13:13:30,631 - ERROR - No route found for: /
+2024-12-30 13:14:27,361 - INFO - Incoming request: /
+2024-12-30 13:14:27,361 - ERROR - No route found for: /
+2024-12-30 13:14:27,362 - INFO - Incoming request: /service1/resource
+2024-12-30 13:14:27,372 - ERROR - Error forwarding request to http://localhost:8001/service1/resource: HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /service1/resource (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104086860>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2024-12-30 13:17:48,689 - INFO - Incoming request: /
+2024-12-30 13:17:48,690 - ERROR - No route found for: /
+2024-12-30 13:17:54,610 - INFO - Incoming request: /service
+2024-12-30 13:17:54,610 - ERROR - No route found for: /service
+2024-12-30 13:18:06,133 - INFO - Incoming request: /service1
+2024-12-30 13:18:06,137 - INFO - Forwarded to: http://localhost:8001/service1 | Response status: 404
+2024-12-30 13:18:41,612 - INFO - Incoming request: /
+2024-12-30 13:18:41,613 - ERROR - No route found for: /
+2024-12-30 13:19:21,208 - INFO - Sidecar Proxy running on port 8080...
+2024-12-30 13:19:56,255 - INFO - Incoming request: /service
+2024-12-30 13:19:56,256 - ERROR - No route found for: /service
+2024-12-30 13:28:58,615 - INFO - Incoming request: /status
+2024-12-30 13:28:58,615 - ERROR - No route found for: /status
+2024-12-30 13:29:06,466 - INFO - Incoming request: /service
+2024-12-30 13:29:06,466 - ERROR - No route found for: /service
+2024-12-30 13:32:22,022 - INFO - Sidecar Proxy running on port 8080...
+2024-12-30 13:32:42,916 - INFO - Incoming request: /service2
+2024-12-30 13:32:42,927 - INFO - Forwarded to: http://localhost:8002/service2 | Response status: 200
+2024-12-30 13:32:58,331 - INFO - Incoming request: /service
+2024-12-30 13:32:58,331 - ERROR - No route found for: /service
+2024-12-30 13:33:18,543 - INFO - Incoming request: /service
+2024-12-30 13:33:18,545 - ERROR - No route found for: /service
+2024-12-30 13:33:33,732 - INFO - Incoming request: /service
+2024-12-30 13:33:33,733 - ERROR - No route found for: /service
+2024-12-30 13:34:54,505 - INFO - Incoming request: /service
+2024-12-30 13:34:54,506 - ERROR - No route found for: /service
+2024-12-30 13:34:54,807 - INFO - Incoming request: /service
+2024-12-30 13:34:54,807 - ERROR - No route found for: /service
+2024-12-30 13:34:58,348 - INFO - Incoming request: /service2
+2024-12-30 13:34:58,350 - ERROR - Error forwarding request to http://localhost:8002/service2: HTTPConnectionPool(host='localhost', port=8002): Max retries exceeded with url: /service2 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105e51b40>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2024-12-30 13:35:56,158 - INFO - Sidecar Proxy running on port 8080...
+2024-12-30 13:39:36,274 - INFO - Incoming request: /service2
+2024-12-30 13:39:36,285 - ERROR - Error forwarding request to http://localhost:8002/service2: HTTPConnectionPool(host='localhost', port=8002): Max retries exceeded with url: /service2 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106a86860>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2024-12-30 13:39:40,273 - INFO - Incoming request: /service
+2024-12-30 13:39:40,273 - ERROR - No route found for: /service
+2024-12-30 13:39:41,494 - INFO - Incoming request: /
+2024-12-30 13:39:41,495 - ERROR - No route found for: /
+2024-12-30 13:39:49,404 - INFO - Incoming request: /status
+2024-12-30 13:39:49,404 - ERROR - No route found for: /status
+2024-12-30 13:39:53,338 - INFO - Incoming request: /service
+2024-12-30 13:39:53,338 - ERROR - No route found for: /service
+2024-12-30 13:39:53,643 - INFO - Incoming request: /service
+2024-12-30 13:39:53,643 - ERROR - No route found for: /service
+2024-12-30 13:42:25,624 - INFO - Sidecar Proxy running on port 8080...
+2024-12-30 13:42:39,825 - INFO - Incoming request: /
+2024-12-30 13:42:39,825 - ERROR - No route found for: /
+2024-12-30 13:43:52,906 - INFO - Incoming request: /service2
+2024-12-30 13:43:52,920 - INFO - Forwarded to: http://localhost:8002/service2 | Response status: 200
+2024-12-30 13:43:52,921 - INFO - Incoming request: /
+2024-12-30 13:43:52,921 - ERROR - No route found for: /
+2024-12-30 13:44:03,813 - INFO - Incoming request: /service2
+2024-12-30 13:44:03,815 - INFO - Forwarded to: http://localhost:8002/service2 | Response status: 200
+2024-12-30 13:44:21,689 - INFO - Incoming request: /service2
+2024-12-30 13:44:21,691 - INFO - Forwarded to: http://localhost:8002/service2 | Response status: 200
+2024-12-30 13:44:21,691 - INFO - Incoming request: /service
+2024-12-30 13:44:21,691 - ERROR - No route found for: /service
+2024-12-30 13:44:45,962 - INFO - Incoming request: /service
+2024-12-30 13:44:45,962 - ERROR - No route found for: /service
+2024-12-30 13:44:46,277 - INFO - Incoming request: /service
+2024-12-30 13:44:46,277 - ERROR - No route found for: /service
+2024-12-30 13:45:23,769 - INFO - Incoming request: /service
+2024-12-30 13:45:23,770 - ERROR - No route found for: /service
+2024-12-30 13:45:23,770 - INFO - Incoming request: /service
+2024-12-30 13:45:23,770 - ERROR - No route found for: /service
