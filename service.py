@@ -9,7 +9,7 @@ class SimpleHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "application/json")
             self.end_headers()
             response = {
-                "message": "Service is running!",
+                "message": "Service is running on the server!",
                 "status": "OK"
             }
             self.wfile.write(json.dumps(response).encode())
