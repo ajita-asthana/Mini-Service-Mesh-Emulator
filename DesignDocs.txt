@@ -1,0 +1,18 @@
+Designing the API (endpoints, request/response structure)
+
+Implementing the API using a backend framework (e.g. Flask, FastAPI, Django, Express.js, etc.)
+
+Documenting the API (e.g. Swagger/OpenAPI)
+
+Testing it (unit tests, integration tests, etc.)
+
+Securing it (auth, rate limits, input validation)
+
+Versioning (so older clients don’t break with changes)
+
+
+HTTP Method	  Endpoint	     Description
+GET	          /tasks	       Get all tasks
+POST	        /tasks	       Create a new task
+PUT	          /tasks/1	     Update task with ID 1
+DELETE	      /tasks/1	       Delete task with ID 1
