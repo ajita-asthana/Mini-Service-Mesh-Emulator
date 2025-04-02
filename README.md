@@ -1,4 +1,6 @@
 # Mini-Service-Mesh-Emulator
+![pytest](https://github.com/ajita-asthana/Mini-Service-Mesh-Emulator/actions/workflows/main.yml/badge.svg)
+
 Build a simple simulation of a service mesh to manage communication between microservices.
 
 # Features
