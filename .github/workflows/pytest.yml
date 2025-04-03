@@ -27,3 +27,9 @@ jobs:
     - name: Run Pytest
       run: |
         pytest
+
+    - name: Run linting with flake8
+      run: flake8 app tests
+
+     - name: Run type checks with mypy
+        run: mypy app 
