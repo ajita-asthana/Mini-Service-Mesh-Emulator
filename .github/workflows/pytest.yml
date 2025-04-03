@@ -3,38 +3,38 @@ name: Run Pytest on Pull Request
 on:
   pull_request:
     branches:
-      - main  # Change this to the branch you want to trigger the workflow on
+      - main # Change this to the branch you want to trigger the workflow on
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.11'  
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.11"
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install -e .
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
 
-    - name: Run Pytest
-      run: |
-        pytest
+      - name: Run Pytest
+        run: |
+          pytest
 
-    - name: Run Ruff (lint + fix)
-      run: ruff check app tests --output-format=github
+      - name: Run Ruff (lint + fix)
+        run: ruff check app tests --output-format=text
 
-    - name: Run type checks with mypy
-      run: mypy app 
+      - name: Run type checks with mypy
+        run: mypy app
 
-    - name: Run tests with coverage
-      run: |
-        coverage run -m pytest
-        coverage report
+      - name: Run tests with coverage
+        run: |
+          coverage run -m pytest
+          coverage report
