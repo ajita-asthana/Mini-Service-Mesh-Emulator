@@ -31,5 +31,10 @@ jobs:
     - name: Run linting with flake8
       run: flake8 app tests
 
-     - name: Run type checks with mypy
-        run: mypy app 
+    - name: Run type checks with mypy
+      run: mypy app 
+
+    - name: Run tests with coverage
+      run: |
+        coverage run -m pytest
+        coverage report
