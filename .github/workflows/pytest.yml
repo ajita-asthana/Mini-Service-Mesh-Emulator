@@ -28,8 +28,8 @@ jobs:
       run: |
         pytest
 
-    - name: Run linting with flake8
-      run: flake8 app tests
+    - name: Run Ruff (lint + fix)
+      run: ruff check app tests --output-format=github
 
     - name: Run type checks with mypy
       run: mypy app 

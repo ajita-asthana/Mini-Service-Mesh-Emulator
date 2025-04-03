@@ -37,6 +37,7 @@ def test_not_found_endpoint():
     assert response.status_code == 404
     assert response.text == "Endpoint not found"
 
+
 # ** Happy Path - Valid Requests **
 def test_do_put():
     """
@@ -53,17 +54,19 @@ def test_do_put():
     assert response_json["message"] == "Data Updated!"
     assert response_json["data"] == test_data
 
-# ** Sad Path - Empty Request Body ** 
+
+# ** Sad Path - Empty Request Body **
 def test_put_empty_body():
     """
     Tests a PUT request with an empty body
     """
     url = f"http://localhost:{PORT}"
 
-    response = requests.put(url, data="") # No JSON body
+    response = requests.put(url, data="")  # No JSON body
 
     assert response.status_code == 400
     assert response.json()["error"] == "Empty request body"
+
 
 # Sad Path - Invalid JSON format
 def test_put_invalid_json():
@@ -71,11 +74,14 @@ def test_put_invalid_json():
     Tests a PUT request with invalid JSON format
     """
     url = f"http://localhost:{PORT}"
-    invalid_json = "{'name': 'Task1', 'status': 'completed'}" # Incorrect JSON format
-    response = requests.put(url, data=invalid_json, headers={"Content-Type": "application/json"})
+    invalid_json = "{'name': 'Task1', 'status': 'completed'}"  # Incorrect JSON format
+    response = requests.put(
+        url, data=invalid_json, headers={"Content-Type": "application/json"}
+    )
 
     assert response.status_code == 400
     assert response.json()["error"] == "Invalid JSON data"
+
 
 def test_put_missing_fields():
     """
@@ -83,13 +89,11 @@ def test_put_missing_fields():
     """
     url = f"http://localhost:{PORT}"
 
-    incomplete_data = {"name": "Task1"} # Missing "status"
-    
+    incomplete_data = {"name": "Task1"}  # Missing "status"
+
     response = requests.put(url, json=incomplete_data)
     assert response.status_code == 422
     assert response.json()["error"] == "Missing required fields"
-
-
 
 
 def test_basic():
