@@ -29,10 +29,10 @@ jobs:
           pytest
 
       - name: Run Ruff (lint + fix)
-        run: ruff check app tests --output-format=github
+        run: ruff check src tests --output-format=github
 
       - name: Run type checks with mypy
-        run: mypy app
+        run: mypy src
 
       - name: Run tests with coverage
         run: |
