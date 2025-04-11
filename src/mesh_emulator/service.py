@@ -82,7 +82,7 @@ if __name__ == "__main__":
     server.serve_forever()
 
 # Testing the Service
-# GET:  curl http://localhost:8001/status
-# POST: curl -X POST http://localhost:8001 -H "Content-Type: application/json" -d '{"name": "example"}'
-# PUT: curl -X PUT http://localhost:8001 -H "Content-Type: application/json" -d '{"name": "updated example"}'
-# DELETE: curl -X DELETE http://localhost:8001
+# GET:  curl http://localhost:8000/status
+# POST: curl -X POST http://localhost:8000 -H "Content-Type: application/json" -d '{"name": "example"}'
+# PUT: curl -X PUT http://localhost:8000 -H "Content-Type: application/json" -d '{"name": "updated example"}'
+# DELETE: curl -X DELETE http://localhost:8000
