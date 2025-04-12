@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -26,8 +26,6 @@ async def create_data(data: Data):
 
 @app.put("/", summary="Update data")
 async def update_data(data: Data):
-    if not data.name or not data.status:
-        raise HTTPException(status_code=422, detail="Missing required fields")
     return {"message": "Data Updated!", "data": data}
 
 
