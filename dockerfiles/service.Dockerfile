@@ -22,4 +22,4 @@ COPY . .
 EXPOSE 8000
 
 # Command to run the server
-CMD ["python", "src/mesh_emulator/fastapi_service.py"]
+CMD ["python", "src/mesh_emulator/service.py"]

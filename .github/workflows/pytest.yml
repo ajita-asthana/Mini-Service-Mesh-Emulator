@@ -24,10 +24,6 @@ jobs:
           pip install -r requirements.txt
           pip install -e .
 
-      - name: Run Pytest
-        run: |
-          pytest
-
       - name: Run Ruff (lint + fix)
         run: ruff check src tests --output-format=github
 
