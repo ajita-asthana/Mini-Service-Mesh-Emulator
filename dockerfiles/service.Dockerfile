@@ -19,7 +19,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose the port that FastAPI will run on
-EXPOSE 8000
+EXPOSE 8001
 
 # Command to run the server
 CMD ["python", "src/mesh_emulator/service.py"]

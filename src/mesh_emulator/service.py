@@ -1,7 +1,16 @@
+import time
 from fastapi import FastAPI
 from pydantic import BaseModel
+from prometheus_client import start_http_server, CONTENT_TYPE_LATEST
+from prometheus_client import Counter, Histogram, Summary, generate_latest
+from starlette.responses import Response
 
 app = FastAPI()
+
+# Prometheus metric
+REQUEST_TIME = Summary("request_processing_seconds", "Time spent processing request")
+REQUEST_COUNT = Counter("http_requests_total", "Total number of HTTP requests")
+REQUEST_LATENCY = Histogram("http_request_latency_seconds", "Latency of HTTP requests")
 
 
 class Data(BaseModel):
@@ -34,7 +43,33 @@ async def delete_resource():
     return {"message": "Resource deleted!"}
 
 
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
+
+
+@app.get("/do_something")
+@REQUEST_LATENCY.time()
+def do_something():
+    REQUEST_COUNT.inc()
+    time.sleep(0.2)
+    return {"result": "done"}
+
+
+@app.get("/metrics")
+def metrics():
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
+
+
+@REQUEST_TIME.time()
+def process_request():
+    time.sleep(1)  # simulate request
+
+
 if __name__ == "__main__":
+    start_http_server(8001)  # Prometheus will scrape this port
+    while True:
+        process_request()
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)

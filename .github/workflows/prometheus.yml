@@ -1,0 +1,8 @@
+global:
+    scrape_interval: 15s
+  
+  scrape_configs:
+    - job_name: 'mesh-service'
+      static_configs:
+        - targets: ['mesh-service:8001', 'host.docker.internal:8001']
+  

@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  mesh-service:
+    build: 
+      context: . # root of the project 
+      dockerfile: dockerfiles/service.Dockerfile
+    container_name: mesh-service 
+    ports:
+      - "8001:8001" 
+    networks:
+      - meshnet
+  
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - meshnet
+
+  grafana:
+    image: grafana/grafana 
+    ports:
+      - "3000:3000"
+    networks:
+      - meshnet 
+    depends_on:
+      - prometheus
+  
+networks:
+  meshnet:
+    driver: bridge 
