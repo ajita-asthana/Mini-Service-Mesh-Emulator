@@ -1,4 +1,5 @@
 from fastapi.testclient import TestClient
+
 from mesh_emulator.service import app
 
 client = TestClient(app)
