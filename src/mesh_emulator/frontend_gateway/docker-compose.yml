@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  frontend-gateway:
+    build:
+      context: ./frontend-gateway 
+    ports:
+      - "8000:8000"
+    depends_on:
+      - user-service
+      - order-service 
+    volumes:
+      - ./frontend-gateway:/app 
+  networks:
+    - meshnet
+
+  user-service:
+    build:
+      context: ./user-service 
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./user-service:/app 
+    networks:
+      - meshnet 
+
+  order-service:
+    build:
+      context: ./order-service
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./order-serivce:/app 
+    networks:
+      - meshnet 
+
+networks:
+  meshnet:
+    driver: bridge 

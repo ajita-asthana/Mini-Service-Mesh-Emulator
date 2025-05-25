@@ -1,0 +1,3 @@
+user_service: http://user-service:8001
+order_service: http://order-service:8002
+review_service: http://review-service:8003
