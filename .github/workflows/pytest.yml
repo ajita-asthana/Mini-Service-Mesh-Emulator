@@ -34,3 +34,6 @@ jobs:
         run: |
           coverage run -m pytest
           coverage report
+
+      - name: Check import order with isort
+        run: isort . --check-only --diff
