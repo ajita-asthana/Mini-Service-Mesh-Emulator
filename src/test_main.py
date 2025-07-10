@@ -19,7 +19,7 @@ def test_create_book():
 
 def test_delete_book():
     # Create a book to delete
-    post_response = client.post(
+    client.post(
         "/books/", json={"title": "To Delete", "author": "Someone", "rating": 3.0}
     )  # END of json
     response = client.get("/books/")
@@ -38,7 +38,7 @@ def test_delete_book():
     assert isinstance(response.json(), list)
 
 
-def test_delete_book():
+def test_delete_book_dummy():  # Create a book to delete
     # Create a book to delete
     post_response = client.post(
         "/books/", json={"title": "To Delete", "author": "Someone", "rating": 3.0}
